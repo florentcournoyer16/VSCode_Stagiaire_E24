@@ -1,8 +1,13 @@
 {
+    // nrf configs
     "nrf-connect.applications": [
         "${workspaceFolder}\\UdeS_ExternalTelemetryUnit"
     ],
-    "C_Cpp.configurationWarnings": "disabled",
+    "nrf-connect.boardRoots": [
+        "${workspaceFolder}\\boards\\arm\\nrf52840_CustomBoard"
+    ],
+    "nrf-connect.activeAppFollowActiveEditor": true,
+    "C_Cpp.default.configurationProvider": "nordic-semiconductor.nrf-connect",
     "files.associations": {
         "nrf_it.h": "c",
         "swc_api.h": "c",
@@ -27,9 +32,12 @@
         "nrfx_log.h": "c",
         "usb_console.h": "c",
         "cstdlib": "c",
-        "memory": "c"
+        "memory": "c",
+        "iface_pairing_basic.h": "c",
+        "uart.h": "c",
+        "usb_device.h": "c",
+        "printk.h": "c",
+        "stddef.h": "c",
+        "iface_cortical_implant.h": "c"
     },
-    "nrf-connect.boardRoots": [
-        "${workspaceFolder}\\nrf52840_CustomBoard"
-    ]
 }
