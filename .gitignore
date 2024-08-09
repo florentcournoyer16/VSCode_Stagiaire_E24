@@ -1,5 +1,9 @@
+UdeS_ExternalTelemetryUnit/build/zephyr/include/generated/**
+
 UdeS_ExternalTelemetryUnit/build/.ninja_deps
 UdeS_ExternalTelemetryUnit/build/.ninja_log
+
 UdeS_ExternalTelemetryUnit/build/zephyr/edt.pickle
+
 *.obj
 *.a
