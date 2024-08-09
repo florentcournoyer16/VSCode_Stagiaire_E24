@@ -7,3 +7,6 @@
 [submodule "boards"]
 	path = boards
 	url = git@github.com:florentcournoyer16/boards.git
+[submodule "UdeS_ExternalTelemetryUnit/lib/usb_console"]
+	path = UdeS_ExternalTelemetryUnit/lib/usb_console
+	url = git@github.com:florentcournoyer16/usb_console.git
