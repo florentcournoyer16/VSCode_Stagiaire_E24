@@ -1,0 +1,10 @@
+sample:
+  description: Code for UdeS GRAMS External telemetry unit
+  name: External Telemetry Unit
+tests:
+  sample.bluetooth.peripheral_hr_coded:
+    build_only: true
+    integration_platforms:
+      - nrf52840_custom
+    platform_allow: nrf52840_custom
+    tags: bluetooth ci_build

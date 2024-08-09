@@ -1,0 +1,9 @@
+[submodule "spark_sdk_v1.3.0"]
+	path = spark_sdk_v1.3.0
+	url = git@github.com:florentcournoyer16/spark_sdk_v1.3.0.git
+[submodule "UdeS_ExternalTelemetryUnit/lib/spark_sdk_v1.3.0"]
+	path = UdeS_ExternalTelemetryUnit/lib/spark_sdk_v1.3.0
+	url = git@github.com:florentcournoyer16/spark_sdk_v1.3.0.git
+[submodule "boards"]
+	path = boards
+	url = git@github.com:florentcournoyer16/boards.git

@@ -1,0 +1,55 @@
+{
+	"folders": [
+		{
+			"name": "blinky_Test",
+			"path": "../../blinky_Test"
+		},
+		{
+			"path": "../../../ncs/v2.5.0/zephyr/boards/arm/nrf52840_CustomBoard"
+		},
+		{
+			"name": "ina219",
+			"path": "../../../ncs/v2.5.0/zephyr/samples/sensor/ina219"
+		},
+		{
+			"name": "cdc_acm",
+			"path": "../../../ncs/v2.5.0/zephyr/samples/subsys/usb/cdc_acm"
+		},
+		{
+			"name": "console",
+			"path": "../../../ncs/v2.5.0/zephyr/samples/subsys/usb/console"
+		},
+		{
+			"name": "peripheral_hr_coded",
+			"path": "../../../ncs/v2.5.0/nrf/samples/bluetooth/peripheral_hr_coded"
+		},
+		{
+			"name": "peripheral_lbs",
+			"path": "../../../ncs/v2.5.0/nrf/samples/bluetooth/peripheral_lbs"
+		},
+		{
+			"name": "beacon",
+			"path": "../../../ncs/v2.5.0/zephyr/samples/bluetooth/beacon"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"name": "Arduino_test_depso",
+			"path": "../../../Users/Jeremy/OneDrive - Cegep de Sherbrooke/Cours/H24/247_465_SH - DEPSO/02 - Laboratoires/Laboratoire 3 (Montage & tests unitaires)/Arduino_test_depso"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"dk_buttons_and_leds.h": "c",
+			"bluetooth.h": "c",
+			"usb_console.h": "c",
+			"string.h": "c",
+			"float.h": "c",
+			"cstddef": "c"
+		},
+		"nrf-connect.applications": [
+			"c:\\nRFConnectCode\\UdeS_ExternalTelemetryUnit"
+		]
+	}
+}

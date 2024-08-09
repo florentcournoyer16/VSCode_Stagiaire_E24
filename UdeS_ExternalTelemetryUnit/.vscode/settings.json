@@ -1,0 +1,27 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "cortical_implant_coord.h": "c",
+        "nrf_timer.h": "c",
+        "nrf_radio.h": "c",
+        "iface_wireless.h": "c",
+        "nrf.h": "c",
+        "typeinfo": "c",
+        "types.h": "c",
+        "device.h": "c",
+        "log.h": "c",
+        "iface_cortical_implant.h": "c",
+        "sections.h": "c",
+        "sw_isr_table.h": "c",
+        "gpio.h": "c",
+        "printk.h": "c",
+        "dk_buttons_and_leds.h": "c",
+        "pairing_basic_coord.h": "c",
+        "usb_console.h": "c",
+        "usens_timer.h": "c",
+        "i2c.h": "c"
+    },
+    "nrf-connect.topdir": "${nrf-connect.sdk:2.5.0}",
+    "nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.6.1}",
+    "C_Cpp.configurationWarnings": "disabled"
+}
