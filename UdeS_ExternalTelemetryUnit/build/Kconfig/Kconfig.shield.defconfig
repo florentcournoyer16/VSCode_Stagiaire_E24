@@ -1,5 +1,0 @@
-osource "c:/norc2802/5_usens/ci/vscode_stagiaire_e24/nrf52840_customboard/boards/shields/*/Kconfig.defconfig"
-osource "c:/norc2802/5_usens/ci/vscode_stagiaire_e24/boards/shields/*/Kconfig.defconfig"
-osource "c:/users/couf1001/desktop/vscode_stagiaire_e24/nrf52840_customboard/boards/shields/*/Kconfig.defconfig"
-osource "c:/users/couf1001/desktop/vscode_stagiaire_e24/boards/shields/*/Kconfig.defconfig"
-osource "C:/ncs/v2.5.0/nrf/boards/shields/*/Kconfig.defconfig"

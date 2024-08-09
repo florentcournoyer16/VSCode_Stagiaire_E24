@@ -1,3 +1,0 @@
-osource "c:/norc2802/5_usens/ci/vscode_stagiaire_e24/nrf52840_customboard/boards/shields/*/Kconfig.shield"
-osource "c:/norc2802/5_usens/ci/vscode_stagiaire_e24/boards/shields/*/Kconfig.shield"
-osource "C:/ncs/v2.5.0/nrf/boards/shields/*/Kconfig.shield"
