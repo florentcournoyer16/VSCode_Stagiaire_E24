@@ -1,0 +1,35 @@
+{
+    "nrf-connect.applications": [
+        "${workspaceFolder}\\UdeS_ExternalTelemetryUnit"
+    ],
+    "C_Cpp.configurationWarnings": "disabled",
+    "files.associations": {
+        "nrf_it.h": "c",
+        "swc_api.h": "c",
+        "swc_def.h": "c",
+        "stdbool.h": "c",
+        "nrf_radio.h": "c",
+        "nrf_timer.h": "c",
+        "iface_wireless.h": "c",
+        "string.h": "c",
+        "errno.h": "c",
+        "types.h": "c",
+        "gpio.h": "c",
+        "hw_cfg.h": "c",
+        "stdint.h": "c",
+        "nrf_hw_base.h": "c",
+        "nrf.h": "c",
+        "kernel.h": "c",
+        "i2c.h": "c",
+        "interrupt_util.h": "c",
+        "circular_queue_critical_section.h": "c",
+        "dk_buttons_and_leds.h": "c",
+        "nrfx_log.h": "c",
+        "usb_console.h": "c",
+        "cstdlib": "c",
+        "memory": "c"
+    },
+    "nrf-connect.boardRoots": [
+        "${workspaceFolder}\\nrf52840_CustomBoard"
+    ]
+}
