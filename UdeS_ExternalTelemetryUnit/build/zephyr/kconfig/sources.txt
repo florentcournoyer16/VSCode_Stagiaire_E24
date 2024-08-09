@@ -1,10 +1,3 @@
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.dts
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.modules
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.shield
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.shield.defconfig
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig.board
-C:\Users\couf1001\Desktop\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig.defconfig
 C:\ncs\toolchains\cf2149caf2\opt\zephyr-sdk\cmake\zephyr\Kconfig
 C:\ncs\v2.5.0\modules\debug\TraceRecorder\config\Kconfig
 C:\ncs\v2.5.0\modules\debug\TraceRecorder\kernelports\Zephyr\Kconfig
@@ -2465,3 +2458,10 @@ C:\ncs\v2.5.0\zephyr\subsys\usb\device_next\class\Kconfig.template.instances_cou
 C:\ncs\v2.5.0\zephyr\subsys\usb\host\Kconfig
 C:\ncs\v2.5.0\zephyr\subsys\usb\usb_c\Kconfig
 C:\ncs\v2.5.0\zephyr\subsys\zbus\Kconfig
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.dts
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.modules
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.shield
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\UdeS_ExternalTelemetryUnit\build\Kconfig\Kconfig.shield.defconfig
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig.board
+C:\norc2802\5_uSens\CI\VSCode_Stagiaire_E24\boards\arm\nrf52840_customboard\Kconfig.defconfig
