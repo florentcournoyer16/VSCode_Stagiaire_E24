@@ -40,4 +40,5 @@
         "stddef.h": "c",
         "iface_cortical_implant.h": "c"
     },
+    "C_Cpp.configurationWarnings": "disabled",
 }

@@ -18,8 +18,8 @@
 #include <zephyr/device.h>
 #include <dk_buttons_and_leds.h>
 #include <nrfx_log.h>
-// #include "cortical_implant_node.h"
-#include "pairing_basic_node.h"
+#include "cortical_implant_node.h"
+// #include "pairing_basic_node.h"
 // #include "pairing_basic_coord.h"
 #include "usb_console.h"
 #include "hw_cfg.h"
