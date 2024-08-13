@@ -38,7 +38,15 @@
         "usb_device.h": "c",
         "printk.h": "c",
         "stddef.h": "c",
-        "iface_cortical_implant.h": "c"
+        "iface_cortical_implant.h": "c",
+        "sched_priq.h": "c",
+        "array": "c",
+        "stdio.h": "c",
+        "swc_utils.h": "c",
+        "random": "c",
+        "pairing_state_machine.h": "c",
+        "pairing_message.h": "c",
+        "pairing_event.h": "c"
     },
     "C_Cpp.configurationWarnings": "disabled",
 }
