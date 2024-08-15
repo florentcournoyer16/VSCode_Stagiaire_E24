@@ -7,6 +7,7 @@
 /** @file
  *  @brief Peripheral Heart Rate over LE Coded PHY sample
  */
+// #include "cortical_implant_coord.h"
 #include "cortical_implant_node.h"
 #include <dk_buttons_and_leds.h>
 #include <errno.h>
@@ -53,6 +54,14 @@ int main(void)
 		printk("LEDs init failed (err %d)\n", err);
 		return 0;
 	}
+
+	iface_tx_conn_status();
+    iface_delay(500);
+    iface_rx_conn_status();
+    iface_delay(500);
+    iface_rx_conn_status();
+    iface_delay(500);
+    iface_tx_conn_status();
 
 	cortical_implant_routine();
 

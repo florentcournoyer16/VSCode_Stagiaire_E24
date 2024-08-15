@@ -30,9 +30,9 @@
 #define LED2_NODE           DT_ALIAS(led2)
 #define LED3_NODE           DT_ALIAS(led3)
 #define LED4_NODE           DT_ALIAS(led4)
-#define UWB_SHTDWN_NODE     DT_ALIAS(uwb_shutdown)
+#define UWB_SHTDWN_NODE     DT_NODELABEL(uwb_shutdown)
 #define UWB_RESET_NODE      DT_NODELABEL(uwb_reset)
-
+#define UWB_CS_NODE			DT_NODELABEL(uwb_cs)
 /* GPIOs spec structure containing the configuration. */
 /* Arguments of functions named : gpio_pin_XXX_dt() */
 static const struct gpio_dt_spec led0           = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
@@ -54,14 +54,33 @@ static const struct gpio_dt_spec uwb_irq_pin    = GPIO_DT_SPEC_GET(UWB_IRQ_NODE,
 
 /* *********************************************** */
 
-#define SPI_UWB_NODE DT_NODELABEL(spi3)
+#define SPI_UWB_NODE 		DT_NODELABEL(spi3)
+#define SPI_UWB_OPERATION 	SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_TRANSFER_MSB
 
 static const struct device *const uwb_spi_dev = DEVICE_DT_GET(SPI_UWB_NODE);
 
+// static struct spi_dt_spec uwb_spi_dev = (struct spi_dt_spec){ 
+// 	.bus 	= DEVICE_DT_GET(SPI_UWB_NODE),
+// 	.config = (struct spi_config){
+// 		.frequency = 4000000,
+// 		.operation = SPI_UWB_OPERATION,
+// 		.slave = 0,
+// 		.cs = SPI_CS_CONTROL_INIT(SPI_UWB_NODE,0)
+// 	}
+// };
+
+// static struct spi_dt_spec uwb_spi_dev = SPI_CONFIG_DT(SPI_UWB_NODE, SPI_UWB_OPERATION, 0);
+
+
 static struct spi_cs_control uwb_cs_ctrl = (struct spi_cs_control){
-		.gpio = GPIO_DT_SPEC_GET(SPI_UWB_NODE, cs_gpios),
+		.gpio = GPIO_DT_SPEC_GET(UWB_CS_NODE, gpios),
 		.delay = 0u,
 };
+
+// static struct spi_cs_control uwb_cs_ctrl = (struct spi_cs_control){
+// 		.gpio = GPIO_DT_SPEC_GET(SPI_UWB_NODE, cs_gpios),
+// 		.delay = 0u,
+// };
 
 #define NRM  "\x1B[0m"
 #define RED  "\x1B[31m"
@@ -72,13 +91,7 @@ static struct spi_cs_control uwb_cs_ctrl = (struct spi_cs_control){
 #define CYN  "\x1B[36m"
 #define WHT  "\x1B[37m"
 
-#define CI_DEBUG
 
-#ifdef CI_DEBUG
-#define PRINTK(a, ...) printk(a, ...)
-#else
-#define PRINTK()
-#endif // CI_DEBUG
 
 /* IRQ Lines */
 //#define PEND_SV_IRQ 		20
