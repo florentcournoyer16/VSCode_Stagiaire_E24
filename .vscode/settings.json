@@ -46,7 +46,11 @@
         "random": "c",
         "pairing_state_machine.h": "c",
         "pairing_message.h": "c",
-        "pairing_event.h": "c"
+        "pairing_event.h": "c",
+        "kernel_includes.h": "c"
     },
     "C_Cpp.configurationWarnings": "disabled",
+    "nrf-connect.debugging.bindings": {
+        "${workspaceFolder}/UdeS_ExternalTelemetryUnit/build": "Launch build"
+    },
 }
