@@ -50,7 +50,7 @@ int main(void)
 	err = dk_leds_init();
 	if (err)
 	{
-		printk("LEDs init failed (err %d)\n", err);
+		printk("LEDs init allo failed (err %d)\n", err);
 		return 0;
 	}
 
