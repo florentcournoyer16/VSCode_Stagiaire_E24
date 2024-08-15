@@ -47,7 +47,9 @@
         "pairing_state_machine.h": "c",
         "pairing_message.h": "c",
         "pairing_event.h": "c",
-        "kernel_includes.h": "c"
+        "string_view": "c",
+        "initializer_list": "c",
+        "nrfx_timer.h": "c"
     },
     "C_Cpp.configurationWarnings": "disabled",
     "nrf-connect.debugging.bindings": {
