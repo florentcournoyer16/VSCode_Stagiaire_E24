@@ -59,15 +59,6 @@ static const struct gpio_dt_spec uwb_irq_pin    = GPIO_DT_SPEC_GET(UWB_IRQ_NODE,
 
 static const struct device *const uwb_spi_dev = DEVICE_DT_GET(SPI_UWB_NODE);
 
-// static struct spi_dt_spec uwb_spi_dev = (struct spi_dt_spec){ 
-// 	.bus 	= DEVICE_DT_GET(SPI_UWB_NODE),
-// 	.config = (struct spi_config){
-// 		.frequency = 4000000,
-// 		.operation = SPI_UWB_OPERATION,
-// 		.slave = 0,
-// 		.cs = SPI_CS_CONTROL_INIT(SPI_UWB_NODE,0)
-// 	}
-// };
 
 // static struct spi_dt_spec uwb_spi_dev = SPI_CONFIG_DT(SPI_UWB_NODE, SPI_UWB_OPERATION, 0);
 

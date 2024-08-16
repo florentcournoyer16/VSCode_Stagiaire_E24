@@ -49,10 +49,9 @@
         "pairing_event.h": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "nrfx_timer.h": "c"
+        "nrfx_timer.h": "c",
+        "pairing_basic_node.h": "c"
     },
     "C_Cpp.configurationWarnings": "disabled",
-    "nrf-connect.debugging.bindings": {
-        "${workspaceFolder}/UdeS_ExternalTelemetryUnit/build": "Launch build"
-    },
+    "iis.configDir": "",
 }

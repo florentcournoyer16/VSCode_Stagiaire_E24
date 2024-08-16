@@ -11,7 +11,7 @@ project(ExternalTelemetryUnit)
 set(WPS_RADIO_COUNT 1)
 set(APP "Cortical Implant")
 set(HARDWARE "NRF")
-set(MYPL "NODE")
+set(MYPL "COORD")
 set(NRF_HW_CONGIG_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src CACHE PATH "Path to the configuration file for the nrf hardware")
 
 message("Generating build : ${MYPL}")
@@ -26,11 +26,13 @@ target_sources(app
 
 add_subdirectory(lib/spark_sdk_v1.3.0)
 add_subdirectory(lib/usb_console)
+add_subdirectory(lib/INA231)
 
 # Include application events and configuration headers
 zephyr_library_include_directories(
   lib/spark_sdk_v1.3.0
   lib/usb_console
+  lib/INA231
   ${NRF_HW_CONGIG_PATH}
   ${CORTICAL_IMPLANT_PATH}
 )

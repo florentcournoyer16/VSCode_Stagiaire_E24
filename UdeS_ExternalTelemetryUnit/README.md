@@ -1,16 +1,8 @@
-.. _ExternalTelemetryUnit:
+# ExternalTelemetryUnit
 
-BLE and UWB: External telemetry unit
-#########################
+## BLE and UWB
 
-.. contents::
-   :local:
-   :depth: 2
-
-The external telemetry unit sample demonstrates how to use the :ref:`ETU_readme`.
-=====================
-Requirements
-************
+### Requirements
 
 The sample supports the following development kits:
 
@@ -24,19 +16,16 @@ The `Testing`_ instructions refer to `nRF Connect for Mobile`_, but you can also
 .. note::
    |thingy53_sample_note|
 
-Overview
-********
+### Overview
 
 When connected, the sample sends the data received by UWB on the custom UdeS GRAMS board to the connected device, such as a phone or tablet.
 The mobile application on the device can display the received data.
 
-User interface
-**************
+### User interface
 
 The user interface of the sample depends on the hardware platform you are using.
 
-nRF52840 Custom board
-=====================
+# nRF52840 Custom board
 
 LED 0:
    Blinks, toggling on/off every second, when the main loop is running and the device is advertising.
@@ -44,8 +33,7 @@ LED 0:
 LED 1:
    Lit when the development kit is connected.
 
-Testing (Need to change description based on procedure!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
-=======
+# Testing (Need to change description based on procedure)
 
 After programming the sample to your dongle or development kit, test it by performing the following steps:
 
@@ -80,8 +68,7 @@ After programming the sample to your dongle or development kit, test it by perfo
 |                        | ``ON``  | Switch the blue channel of the RGB LED on.   |
 +------------------------+---------+----------------------------------------------+
 
-Dependencies (Need to change dependencies based on project !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
-************
+## Dependencies (Need to change dependencies based on project)
 
 This sample uses the following |NCS| libraries:
 
