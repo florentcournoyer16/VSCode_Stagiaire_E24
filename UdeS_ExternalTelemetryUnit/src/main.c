@@ -184,9 +184,9 @@ void init_all_ina23x(struct ina23x_data *ina1,struct ina23x_data *ina2,
 	}
 
 	if (err){
-		printk("Error in ina231 initialization !\n");
+		printk(RED"Error in ina231 initialization !\n"NRM);
 	}else{
-		printk("All ina231 initialized !\n");
+		printk(NRM"All ina231 initialized !\n");
 	}
 }
 
