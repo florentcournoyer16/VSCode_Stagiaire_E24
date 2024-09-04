@@ -1,6 +1,7 @@
 #ifndef HW_CFG_H_
 #define HW_CFG_H_
 
+#include <dk_buttons_and_leds.h>
 #include <stddef.h>
 #include <string.h>
 #include <errno.h>
@@ -9,6 +10,17 @@
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/spi.h>
+#include <zephyr/device.h>
+#include <zephyr/sys/printk.h>
+// Bluetooth HEADER files
+#include <zephyr/bluetooth/bluetooth.h>
+#include <zephyr/bluetooth/hci.h>
+#include <zephyr/bluetooth/conn.h>
+#include <zephyr/bluetooth/uuid.h>
+#include <zephyr/bluetooth/gatt.h>
+#include <zephyr/bluetooth/services/bas.h>
+#include <zephyr/bluetooth/services/hrs.h>
+
 
 #define DEVICE_NAME             CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN         (sizeof(DEVICE_NAME) - 1)
@@ -35,11 +47,11 @@
 #define UWB_CS_NODE			DT_NODELABEL(uwb_cs)
 /* GPIOs spec structure containing the configuration. */
 /* Arguments of functions named : gpio_pin_XXX_dt() */
-static const struct gpio_dt_spec led0           = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
-static const struct gpio_dt_spec led1           = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
-static const struct gpio_dt_spec led2           = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
-static const struct gpio_dt_spec led3           = GPIO_DT_SPEC_GET(LED3_NODE, gpios);
-static const struct gpio_dt_spec led4           = GPIO_DT_SPEC_GET(LED4_NODE, gpios);
+static const struct gpio_dt_spec led0          	 	= GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+static const struct gpio_dt_spec led1          	 	= GPIO_DT_SPEC_GET(LED1_NODE, gpios);
+static const struct gpio_dt_spec led2          	 	= GPIO_DT_SPEC_GET(LED2_NODE, gpios);
+static const struct gpio_dt_spec led3          	 	= GPIO_DT_SPEC_GET(LED3_NODE, gpios);
+static const struct gpio_dt_spec led4          	 	= GPIO_DT_SPEC_GET(LED4_NODE, gpios);
 static const struct gpio_dt_spec uwb_shutdown_pin   = GPIO_DT_SPEC_GET(UWB_SHTDWN_NODE, gpios);
 static const struct gpio_dt_spec uwb_reset_pin      = GPIO_DT_SPEC_GET(UWB_RESET_NODE, gpios);
 

@@ -11,7 +11,7 @@ project(ExternalTelemetryUnit)
 set(WPS_RADIO_COUNT 1)
 set(APP "Cortical Implant")
 set(HARDWARE "NRF")
-set(MYPL "COORD")
+set(MYPL "COORD") #Change between COORD or NODE for appropriate UWB device
 set(NRF_HW_CONGIG_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src CACHE PATH "Path to the configuration file for the nrf hardware")
 
 message("Generating build : ${MYPL}")

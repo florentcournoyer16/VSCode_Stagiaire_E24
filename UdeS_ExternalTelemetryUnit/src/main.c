@@ -7,24 +7,15 @@
 /** @file
  *  @brief Peripheral Heart Rate over LE Coded PHY sample
  */
-#include "cortical_implant_coord.h"
-// #include "cortical_implant_node.h"
-#include <dk_buttons_and_leds.h>
-#include <errno.h>
+#include "cortical_implant_coord.h"		//Choose this .h if in COORD mode in the CMAKE
+// #include "cortical_implant_node.h" 	//Choose this .h if in NODE mode in the CMAKE
 #include <nrfx_log.h>
-#include <stddef.h>
-#include <string.h>
-#include <zephyr/device.h>
-#include <zephyr/drivers/gpio.h>
-#include <zephyr/drivers/i2c.h>
-#include <zephyr/kernel.h>
-#include <zephyr/sys/printk.h>
-#include <zephyr/types.h>
-// #include "pairing_basic_node.h"
-// #include "pairing_basic_coord.h"
+// #include "pairing_basic_node.h"		//Keep commented
+// #include "pairing_basic_coord.h"		//Keep commented
 #include "hw_cfg.h"
 #include "INA231.h"
 #include "usb_console.h"
+
 /* Private function prototype ************************************************/
 
 /* INA I2C DEVICES ************************************************************/
@@ -36,6 +27,35 @@ static const struct i2c_dt_spec dev_ina_5V = I2C_DT_SPEC_GET(DT_NODELABEL(ina_5v
 void show_data_ina23x(struct ina23x_data *ina1);
 void init_all_ina23x(struct ina23x_data *ina1,struct ina23x_data *ina2,
 	struct ina23x_data *ina3,struct ina23x_data *ina4);
+
+
+/* BLE related prototype ****************************************************************/
+static const struct bt_data ad[] = {
+	BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
+	BT_DATA_BYTES(BT_DATA_UUID16_ALL,
+		      BT_UUID_16_ENCODE(BT_UUID_HRS_VAL),
+		      BT_UUID_16_ENCODE(BT_UUID_BAS_VAL),
+		      BT_UUID_16_ENCODE(BT_UUID_DIS_VAL))
+};
+
+static void connected(struct bt_conn *conn, uint8_t err);
+static void disconnected(struct bt_conn *conn, uint8_t reason);
+
+BT_CONN_CB_DEFINE(conn_callbacks) = {
+	.connected = connected,
+	.disconnected = disconnected,
+};
+
+static void bt_ready(void);
+static void auth_cancel(struct bt_conn *conn);
+
+static struct bt_conn_auth_cb auth_cb_display = {
+	.cancel = auth_cancel,
+};
+
+static void bas_notify(void);
+static void hrs_notify(void);
+/* END of BLE realted prototype *********************************************************/
 
 int main(void)
 {
@@ -82,16 +102,34 @@ int main(void)
 
 	init_cortical_implant();
 
+	/* BLE code *******************************************/
+	printk("Starting Bluetooth Peripheral HR coded example\n");
+	err = bt_enable(NULL);
+	if (err) {
+		printk("Bluetooth init failed (err %d)\n", err);
+		return 0;
+	}
+
+	bt_ready();
+
+	//bt_conn_auth_cb_register(&auth_cb_display);
+	/*******************************************************/
+
 	for (;;)
 	{
 		cortical_implant_routine();
 
-		printk(GRN"******************************************************************************\n");
+		printk(GRN"***********************************************************************************\n");
 		show_data_ina23x(&ina_MCU);
 		show_data_ina23x(&ina_UWB);
 		show_data_ina23x(&ina_uSD);
 		show_data_ina23x(&ina_5V);
-		printk(GRN"******************************************************************************\n"NRM);
+		printk(GRN"***********************************************************************************\n"NRM);
+
+		/* Heartrate measurements simulation */
+		hrs_notify();
+		/* Battery level simulation */
+		bas_notify();
 
 		unpair_device();
 		k_sleep(K_MSEC(100));
@@ -188,9 +226,75 @@ void show_data_ina23x(struct ina23x_data *ina1){
 			printk(YEL"ina@%x : "NRM, ina1->devSpec.addr);
 			break;
 		}
-		printk("Bus voltage = %i mV  ||  Current = %i uA \t||  Power = %i uW\n", tempBus, tempCurrent, tempPower);
+		printk("Bus voltage = %i mV || Current = %i uA \t|| Power = %i uW\n", tempBus, tempCurrent, tempPower);
 	}
 
 	// Power down after reading to save energy
 	ina23x_power_down(ina1);
+}
+
+/* Bluetooth related functions *************************************************/
+
+static void connected(struct bt_conn *conn, uint8_t err)
+{
+	if (err) {
+		printk("Connection failed (err 0x%02x)\n", err);
+	} else {
+		printk("Connected\n");
+	}
+}
+
+static void disconnected(struct bt_conn *conn, uint8_t reason)
+{
+	printk("Disconnected (reason 0x%02x)\n", reason);
+}
+
+static void bt_ready(void)
+{
+	int err;
+
+	printk("Bluetooth initialized\n");
+
+	err = bt_le_adv_start(BT_LE_ADV_CONN_NAME, ad, ARRAY_SIZE(ad), NULL, 0);
+	if (err) {
+		printk("Advertising failed to start (err %d)\n", err);
+		return;
+	}
+
+	printk("Advertising successfully started\n");
+}
+
+static void auth_cancel(struct bt_conn *conn)
+{
+	char addr[BT_ADDR_LE_STR_LEN];
+
+	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
+
+	printk("Pairing cancelled: %s\n", addr);
+}
+
+static void bas_notify(void)
+{
+	uint8_t battery_level = bt_bas_get_battery_level();
+
+	battery_level--;
+
+	if (!battery_level) {
+		battery_level = 100U;
+	}
+
+	bt_bas_set_battery_level(battery_level);
+}
+
+static void hrs_notify(void)
+{
+	static uint8_t heartrate = 90U;
+
+	/* Heartrate measurements simulation */
+	heartrate++;
+	if (heartrate == 160U) {
+		heartrate = 90U;
+	}
+
+	bt_hrs_notify(heartrate);
 }
